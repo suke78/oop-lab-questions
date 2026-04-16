@@ -71,3 +71,42 @@ public static int getStaffCount() {
 Reason:
 staffCount is static because it is shared among all objects.
 */
+
+abstract class StaffMember {
+    private String fullName;
+    private final String staffId;
+    protected String department;
+
+
+private static int staffCount = 0;
+
+public static void showSystemName() {
+    System.out.println("Campus Staff Payment System");
+}
+
+public static int getStaffCount() {
+    return staffCount;
+}
+
+public StaffMember(String fullName, String staffId, String department) {
+    this.fullName = fullName;
+    this.staffId = staffId;
+    this.department = department;
+    staffCount++; 
+}
+
+public void changeDepartment(String newDepartment) {
+    if (newDepartment != null && !newDepartment.isEmpty()) {
+        this.department = newDepartment;
+    }
+}
+
+public final void showCommonNotice() {
+    System.out.println("All staff must follow university policies.");
+    }
+}
+
+/*
+Reason:
+changeDepartment() allows safe and controlled updates instead of direct access.
+*/
