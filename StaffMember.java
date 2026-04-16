@@ -40,3 +40,34 @@ Reason:
 StaffMember is abstract because it is a general design and should not be instantiated directly.
 Only child classes like Lecturer and LabAssistant should create objects.
 */
+
+
+
+abstract class StaffMember {
+    private String fullName;
+    private final String staffId;
+    protected String department;
+
+
+private static int staffCount = 0;
+
+public StaffMember(String fullName, String staffId, String department) {
+    this.fullName = fullName;
+    this.staffId = staffId;
+    this.department = department;
+    staffCount++; // increase count
+}
+
+public static void showSystemName() {
+    System.out.println("Campus Staff Payment System");
+}
+
+public static int getStaffCount() {
+    return staffCount;
+    }
+}
+
+/*
+Reason:
+staffCount is static because it is shared among all objects.
+*/
